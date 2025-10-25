@@ -11,8 +11,8 @@ public class CustomZipTests
     [Test]
     public void ZipWithPadding_EqualLength()
     {
-        var a = new[] {1, 2, 3};
-        var b = new[] {"a", "b", "c"};
+        var a = new[] { 1, 2, 3 };
+        var b = new[] { "a", "b", "c" };
 
         var zipped = a.ZipWithPadding(b, 0, "_").ToList();
 
@@ -25,8 +25,8 @@ public class CustomZipTests
     [Test]
     public void ZipWithPadding_LeftLonger_UsesRightPad()
     {
-        var a = new[] {1, 2, 3};
-        var b = new[] {"x"};
+        var a = new[] { 1, 2, 3 };
+        var b = new[] { "x" };
 
         var zipped = a.ZipWithPadding(b, -1, "PAD").ToList();
 
@@ -40,7 +40,7 @@ public class CustomZipTests
     public void ZipWithPadding_RightLonger_UsesLeftPad()
     {
         var a = Array.Empty<int>();
-        var b = new[] {"u", "v"};
+        var b = new[] { "u", "v" };
 
         var zipped = a.ZipWithPadding(b, 0, string.Empty).ToList();
 
@@ -88,8 +88,8 @@ public class CustomZipTests
     public void ZipWithPadding_NullArgs_Throws()
     {
         IEnumerable<int> a = null!;
-        var b = new[] {1};
+        var b = new[] { 1 };
         Assert.Throws<ArgumentNullException>(() => _ = a.ZipWithPadding(b, 0, 0).ToList());
-        Assert.Throws<ArgumentNullException>(() => _ = new[] {1}.ZipWithPadding<int, int>(null!, 0, 0).ToList());
+        Assert.Throws<ArgumentNullException>(() => _ = new[] { 1 }.ZipWithPadding<int, int>(null!, 0, 0).ToList());
     }
 }
